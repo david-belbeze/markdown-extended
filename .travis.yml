@@ -4,7 +4,24 @@ node_js:
   - 10
   - 12
 
-script:
-  - npm run build
-  - npm run test:cov
-  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
+env:
+  global:
+    - CC_TEST_REPORTER_ID=e87db9438b329a31d694b5af21040243ac0f6ca537d8913768d54cc1694c1928
+
+jobs:
+  include:
+    - node_js: 10
+      script:
+        - npm run build
+        - npm run test
+    - node_js: 12
+      before_install:
+        - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+        - chmod +x ./cc-test-reporter
+        - ./cc-test-reporter before-build
+      script:
+        - npm run build
+        - npm run test:cov
+      after_script:
+        - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
+        - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
