@@ -2,6 +2,7 @@
   "name": "markdown-extended",
   "version": "1.0.0",
   "description": "Simple library that expose markdown server with mermaid extension.",
+  "homepage": "https://github.com/david-belbeze/markdown-extended.git",
   "main": "dist/index.js",
   "files": [
     "/dist"
@@ -43,7 +44,8 @@
     "jest": "^24.9.0",
     "nodemon": "^2.0.1"
   },
-  "nyc": {
-    "exclude": "**/*.spec.js"
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/david-belbeze/markdown-extended.git"
   }
 }

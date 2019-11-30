@@ -10,7 +10,7 @@ To contribute to the project is necessary to have install on your device:
 
 ## Clone the project
 
-`$ git clone `
+`$ git clone https://github.com/david-belbeze/markdown-extended.git`
 
 ## Install dependencies
 
