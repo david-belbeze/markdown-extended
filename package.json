@@ -1,0 +1,49 @@
+{
+  "name": "markdown-extended",
+  "version": "1.0.0",
+  "description": "Simple library that expose markdown server with mermaid extension.",
+  "main": "dist/index.js",
+  "files": [
+    "/dist"
+  ],
+  "bin": {
+    "mdserve": "dist/cli.js"
+  },
+  "scripts": {
+    "start": "node dist/cli.js",
+    "start:dev": "nodemon --exec babel-node src/main/cli.js",
+    "build": "rm -rf dist/; babel src/main --out-dir ./dist; babel src/main/static/css/ --out-dir ./dist/static/css/ --copy-files; babel src/main/*.hbs --out-dir ./dist --copy-files; chmod +x ./dist/cli.js",
+    "test": "jest src/test/",
+    "test:cov": "jest src/test/ --coverage"
+  },
+  "keywords": [
+    "markdown",
+    "server",
+    "mermaid"
+  ],
+  "author": "david.belbeze@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/polyfill": "^7.7.0",
+    "argparse": "^1.0.10",
+    "express": "^4.17.1",
+    "generate-github-markdown-css": "^3.0.2",
+    "github-markdown-css": "^3.0.1",
+    "handlebars": "^4.5.3",
+    "markdown-it": "^10.0.0",
+    "markdown-it-mermaid": "^0.2.5",
+    "open": "^7.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@babel/node": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/register": "^7.7.4",
+    "jest": "^24.9.0",
+    "nodemon": "^2.0.1"
+  },
+  "nyc": {
+    "exclude": "**/*.spec.js"
+  }
+}

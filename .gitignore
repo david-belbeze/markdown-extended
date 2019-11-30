@@ -1,0 +1,11 @@
+# IDE
+.vscode/
+
+# Node
+node_modules/
+
+# Test
+coverage/
+
+# Build
+dist/

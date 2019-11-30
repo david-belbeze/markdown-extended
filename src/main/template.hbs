@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <title>{{ title }}</title>
+
+        <!-- css -->
+        <link rel="stylesheet" href="/css/markdown.css">
+        <link rel="stylesheet" href="/css/highlightjs.min.css">
+        <link rel="stylesheet" href="/css/style.css">
+        
+        <!-- js -->
+        <script type="text/javascript" src="/js/highlight.min.js"></script>
+        <script type="text/javascript" src="/js/go.min.js"></script>
+        <script type="text/javascript" src="/js/mermaid.min.js"></script>
+    </head>
+    <body>
+        <section class="markdown-body">
+            {{{ breadcrumb breadcrumb.rootUrl breadcrumb.segments }}}
+            {{{ markdown }}}
+        </section>
+        <script type="text/javascript">
+            // init mermaid api
+            mermaid.initialize({startOnLoad:true});
+            // init highlight code
+            hljs.initHighlightingOnLoad();
+        </script>
+    </body>
+</html>
