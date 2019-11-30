@@ -41,11 +41,12 @@
     "@babel/node": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
     "@babel/register": "^7.7.4",
+    "coveralls": "^3.0.9",
     "jest": "^24.9.0",
     "nodemon": "^2.0.1"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/david-belbeze/markdown-extended.git"
+    "type": "git",
+    "url": "https://github.com/david-belbeze/markdown-extended.git"
   }
 }
