@@ -1,4 +1,6 @@
-import { getResourcePath, isRoot, urlResolve, breadcrumb } from '../../main/core/utils';
+import fs from 'fs';
+
+import { getResourcePath, isRoot, urlResolve, breadcrumb, isValidImage } from '../../main/core/utils';
 
 
 describe('Test utils', () => {
@@ -53,5 +55,19 @@ describe('Test utils', () => {
             }
         ).toThrow(Error);
     })
+
+    test('Test isValidImage valid', () => {
+        fs.existsSync = jest.fn().mockReturnValue(true);
+        fs.statSync = jest.fn()
+            .mockReturnValue({
+                isFile: jest.fn().mockReturnValue(true),
+            });
+
+        expect(isValidImage('path/to/image.jpg')).toEqual(true);
+    });
+
+    test('Test isValidImage invalid', () => {
+        expect(isValidImage('path/to/imagepng')).toEqual(false);
+    });
 
 });

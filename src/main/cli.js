@@ -37,7 +37,6 @@ async function main(args) {
     // Initialize the markdown server part
     initExpressApplication(app, '/', root);
 
-
     // Regenerate the markdown css when is necessary
     const stylePath = path.resolve(path.join(path.resolve(__dirname), 'static', 'css'), 'markdown.css');
     if (!fs.existsSync(stylePath)) {
@@ -80,7 +79,7 @@ parser.addArgument(
     }
 );
 parser.addArgument(
-    ['--open'],
+    ['-o', '--open'],
     {
         help: 'Use this flag to force to open the link in new browser tab',
         action: 'storeTrue',

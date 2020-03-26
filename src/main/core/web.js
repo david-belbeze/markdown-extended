@@ -6,7 +6,7 @@ import hbs from 'handlebars';
 import markdownIt from 'markdown-it';
 import markdownItMermaid from 'markdown-it-mermaid';
 
-import { getResourcePath, breadcrumb } from './utils';
+import { getResourcePath, breadcrumb, isValidImage } from './utils';
 
 
 // Prepare markdown renferer
@@ -112,6 +112,9 @@ export function staticMarkdown(mdPath) {
                 && fs.statSync(resourcePath).isFile()) {
             // In that case the file is an existing md file
             getMarkdownFile(resourcePath, req, res);
+        } else if (isValidImage(resourcePath)) {
+            // When the file is an image
+            res.sendFile(resourcePath);
         } else {
             // In other case not override
             next();

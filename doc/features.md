@@ -53,3 +53,13 @@ graph TD
     README.md --> feature.md
     README.md --> contribute.md
 ```
+
+## Support images
+
+Inline-style:  
+![Markdown logo](./markdown.png "The markdown logo as inline")
+
+Reference-style:  
+![Markdown logo][logo]
+
+[logo]: ./markdown.png "The markdown logo by reference"

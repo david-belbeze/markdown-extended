@@ -1,7 +1,33 @@
+import fs from 'fs';
 import path from 'path';
 import url from 'url';
 
 import handlebars from 'handlebars';
+
+
+/**
+ * This constant allows to define the supported image extensions.
+ * 
+ * @see https://developer.mozilla.org/fr/docs/Web/HTML/Element/Img#Formats_dimage_pris_en_charge for format availables
+ */
+const IMAGE_EXT = [
+    'apng',
+    'png',
+    'bmp',
+    'gif',
+    'ico',
+    'cur',
+    'jpg', 
+    'jpeg', 
+    'jfif', 
+    'pjpeg', 
+    'pjp',
+    'svg',
+    'tif',
+    'tiff',
+    'webp',
+];
+
 
 /**
  * The method allows to get the resource path without the '/' first character.
@@ -72,4 +98,25 @@ export function breadcrumb(rootUrl, segments) {
     <li class="breadcrumb-item"><a href="{{ this.url }}">{{ this.name }}</a></li>
     {{/each}}
 </ul>`)({ items });
+}
+
+
+/**
+ * This method indicate if the file is a valid image type and if the image file exists.
+ *
+ * @param {string} path The path to the image to serach in the file system
+ */
+export function isValidImage(path) {
+    const match = path.match(/^.*\.([a-z]+)$/i);
+
+    let valid = false;
+    if (match) {
+        const ext = match[1].toLowerCase();
+
+        valid = IMAGE_EXT.includes(ext)         // vérifier que l'extension est autorisée
+            && fs.existsSync(path)              // vérfiier que le fichier existe
+            && fs.statSync(path).isFile();
+    }
+
+    return valid;
 }
