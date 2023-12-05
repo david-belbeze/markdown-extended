@@ -28,7 +28,7 @@
     "@babel/polyfill": "^7.7.0",
     "argparse": "^1.0.10",
     "express": "^4.17.1",
-    "generate-github-markdown-css": "^3.0.2",
+    "generate-github-markdown-css": "^6.1.0",
     "github-markdown-css": "^3.0.1",
     "handlebars": "^4.5.3",
     "markdown-it": "^10.0.0",
@@ -41,7 +41,7 @@
     "@babel/node": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
     "@babel/register": "^7.7.4",
-    "jest": "^24.9.0",
+    "jest": "^29.7.0",
     "nodemon": "^2.0.1"
   },
   "repository": {
